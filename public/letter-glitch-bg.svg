@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" preserveAspectRatio="none">
+  <defs>
+    <radialGradient id="vignette" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="70%" stop-color="rgba(0,0,0,0.35)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.85)"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.18)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.06)"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+    <style>
+      .bg { fill: #000; }
+      .t { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 14px; letter-spacing: 1px; }
+      .c1 { fill: rgba(14,165,233,0.55); }
+      .c2 { fill: rgba(34,211,238,0.45); }
+      .c3 { fill: rgba(99,102,241,0.42); }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="800"/>
+
+  <!-- Static "letter glitch" field (deterministic, no runtime work) -->
+  <g filter="url(#soft)">
+    <text class="t c1" x="30" y="60">QW3$ 9KZ! 8FJ2 /]A7 {M0} :: 1N4, 7T8</text>
+    <text class="t c2" x="30" y="90">X9P# 0R2@ L5G7 +== [B4] &lt;&gt; 6C1. Z0V</text>
+    <text class="t c3" x="30" y="120">A1D! F4G? H7J* K0L_ P3O+ U6Y/</text>
+
+    <text class="t c2" x="30" y="180">R4N$ T8Y# U2I@ O6P! S0D_ F3G+ H7J/</text>
+    <text class="t c1" x="30" y="210">[W3] {E7} (R1) -T5- +Y9+ &lt;U2&gt; :I6:</text>
+    <text class="t c3" x="30" y="240">Z8X, C4V. B0N/ M6A; S2D: F9G&lt; H1J&gt;</text>
+
+    <text class="t c1" x="30" y="320">1Q! 2W@ 3E# 4R$ 5T% 6Y^ 7U& 8I* 9O( 0P)</text>
+    <text class="t c2" x="30" y="350">L3K2 J1H0 G9F8 D7S6 A5Q4 W3E2 R1T0</text>
+    <text class="t c3" x="30" y="380">N7M6 B5V4 C3X2 Z1A0 S9D8 F7G6 H5J4</text>
+
+    <text class="t c2" x="30" y="470">// SYSTEM // READY // LOAD: OK // RENDER: OK // CACHE: OK //</text>
+    <text class="t c1" x="30" y="500">&gt;&gt; INIT::MODEL::SCENE  |  &gt;&gt; LIGHT::ENV::STUDIO  |  &gt;&gt; CAM::FIT</text>
+    <text class="t c3" x="30" y="530">00011010 01001101 00101110 01101011 00001101</text>
+
+    <text class="t c1" x="30" y="650">{[[]]} ==++== --__-- ::..:: &lt;&lt;..&gt;&gt; ((..))</text>
+    <text class="t c2" x="30" y="680">A0Z9 B1X8 C2V7 D3S6 F4G5 H6J7 K8L9</text>
+    <text class="t c3" x="30" y="710">/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/</text>
+  </g>
+
+  <rect x="0" y="0" width="1200" height="800" fill="url(#fade)" opacity="0.35"/>
+  <rect x="0" y="0" width="1200" height="800" fill="url(#vignette)"/>
+</svg>

@@ -1,0 +1,86 @@
+.star-border-container {
+  display: block;
+  position: relative;
+  border-radius: 20px;
+  overflow: visible;
+  isolation: isolate;
+}
+
+.star-border-effects {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+
+  /* Show the animated gradients only in the border ring (outside the content box). */
+  padding: var(--sb-thickness, 1px);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.border-gradient-bottom {
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  opacity: 0.7;
+  bottom: -11px;
+  right: -250%;
+  border-radius: 50%;
+  animation: star-movement-bottom linear infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--sb-color, white), transparent 10%);
+  animation-duration: var(--sb-speed, 6s);
+}
+
+.border-gradient-top {
+  position: absolute;
+  opacity: 0.7;
+  width: 300%;
+  height: 50%;
+  top: -10px;
+  left: -250%;
+  border-radius: 50%;
+  animation: star-movement-top linear infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--sb-color, white), transparent 10%);
+  animation-duration: var(--sb-speed, 6s);
+}
+
+.inner-content {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: inherit;
+  color: inherit;
+  font-size: inherit;
+  text-align: inherit;
+  z-index: 1;
+}
+
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100%, 0%);
+    opacity: 0;
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0%);
+    opacity: 0;
+  }
+}
