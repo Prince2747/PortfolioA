@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className="antialiased bg-black text-white">
         <Navbar />
         {children}
+        <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       </body>
     </html>
   );
