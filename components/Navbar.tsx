@@ -10,7 +10,7 @@ export default function Navbar() {
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-linear-to-t from-white/10 to-transparent opacity-50" />
           <div className="flex items-center gap-2">
             <Link href="/" className="text-sm font-medium text-white">
-              Prince
+              LY
             </Link>
           </div>
 
