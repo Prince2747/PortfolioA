@@ -207,9 +207,11 @@ function Model({
       };
 
       if (Array.isArray(material)) {
-        mesh.material = material.map((m) => fixMaterial(m));
+        mesh.material = material
+          .map((m) => fixMaterial(m))
+          .filter((m): m is THREE.Material => Boolean(m));
       } else {
-        mesh.material = fixMaterial(material);
+        mesh.material = fixMaterial(material) as THREE.Material;
       }
     });
   }, [

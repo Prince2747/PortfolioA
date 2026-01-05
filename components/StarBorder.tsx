@@ -1,28 +1,25 @@
 import React from "react";
 import "./StarBorder.css";
 
-type StarBorderProps<T extends React.ElementType> =
-  React.ComponentPropsWithoutRef<T> & {
-    as?: T;
-    className?: string;
-    children?: React.ReactNode;
-    color?: string;
-    speed?: React.CSSProperties["animationDuration"];
-    thickness?: number;
-  };
+type StarBorderProps = React.HTMLAttributes<HTMLElement> & {
+  as?: React.ElementType;
+  color?: string;
+  speed?: React.CSSProperties["animationDuration"];
+  thickness?: number;
+  children?: React.ReactNode;
+};
 
-const StarBorder = <T extends React.ElementType = "button">({
+const StarBorder = ({
   as,
   className = "",
   color = "white",
   speed = "6s",
   thickness = 1,
   children,
+  style,
   ...rest
-}: StarBorderProps<T>) => {
-  const Component = (as || "button") as T;
-
-  const { style, ...restProps } = rest as React.ComponentPropsWithoutRef<T>;
+}: StarBorderProps) => {
+  const Component = (as || "button") as React.ElementType;
 
   type StarBorderStyle = React.CSSProperties & {
     ["--sb-color"]?: string;
@@ -38,18 +35,20 @@ const StarBorder = <T extends React.ElementType = "button">({
     padding: `var(--sb-thickness)`,
   };
 
-  return (
-    <Component
-      className={`star-border-container ${className}`}
-      {...restProps}
-      style={mergedStyle}
-    >
-      <div className="star-border-effects" aria-hidden="true">
+  return React.createElement(
+    Component,
+    {
+      className: `star-border-container ${className}`,
+      ...rest,
+      style: mergedStyle,
+    },
+    [
+      <div className="star-border-effects" aria-hidden="true" key="effects">
         <div className="border-gradient-bottom"></div>
         <div className="border-gradient-top"></div>
-      </div>
-      <div className="inner-content">{children}</div>
-    </Component>
+      </div>,
+      <div className="inner-content" key="content">{children}</div>,
+    ]
   );
 };
 
