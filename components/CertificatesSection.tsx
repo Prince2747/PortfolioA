@@ -12,6 +12,14 @@ function getImageUrl(url?: string) {
   return trimmed;
 }
 
+function getExternalUrl(url?: string) {
+  if (!url) return undefined;
+  const trimmed = url.trim();
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  // Fallback: assume https if missing protocol
+  return `https://${trimmed}`;
+}
+
 export default function CertificatesSection() {
   const [certifications, setCertifications] = useState<Certification[] | null>(
     null
@@ -102,9 +110,9 @@ export default function CertificatesSection() {
                   <h3 className="mt-3 text-xl font-semibold text-black group-hover:text-black/80 transition-colors">
                     {cert.title}
                   </h3>
-                  {cert.url && (
+                  {getExternalUrl(cert.url) && (
                     <Link
-                      href={cert.url}
+                      href={getExternalUrl(cert.url)!}
                       target="_blank"
                       rel="noreferrer noopener"
                       className="mt-4 inline-flex items-center justify-center rounded-full bg-black px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-black/80"
