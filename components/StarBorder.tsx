@@ -47,7 +47,9 @@ const StarBorder = ({
         <div className="border-gradient-bottom"></div>
         <div className="border-gradient-top"></div>
       </div>,
-      <div className="inner-content" key="content">{children}</div>,
+      <div className="inner-content" key="content">
+        {children}
+      </div>,
     ]
   );
 };
