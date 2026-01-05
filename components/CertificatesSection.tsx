@@ -3,10 +3,7 @@
 import Link from "next/link";
 import Particles from "./Particles";
 import { useEffect, useState } from "react";
-import {
-  fetchCertifications,
-  type Certification,
-} from "@/lib/certifications";
+import { fetchCertifications, type Certification } from "@/lib/certifications";
 
 function getImageUrl(url?: string) {
   if (!url) return undefined;
@@ -16,7 +13,9 @@ function getImageUrl(url?: string) {
 }
 
 export default function CertificatesSection() {
-  const [certifications, setCertifications] = useState<Certification[] | null>(null);
+  const [certifications, setCertifications] = useState<Certification[] | null>(
+    null
+  );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -42,8 +41,8 @@ export default function CertificatesSection() {
       id="certificates"
       className="relative z-10 min-h-screen w-full scroll-mt-28 bg-white text-black"
       style={{
-        backgroundImage: 'none',
-        backgroundSize: '40px 40px',
+        backgroundImage: "none",
+        backgroundSize: "40px 40px",
       }}
     >
       <div className="absolute inset-0 pointer-events-none opacity-80">
@@ -124,10 +123,10 @@ export default function CertificatesSection() {
         </div>
 
         <div className="mt-12 text-center text-xs uppercase tracking-[0.35em] text-black/50">
-          {String(Math.max(certifications?.length ?? 0, 0)).padStart(2, "0")} items
+          {String(Math.max(certifications?.length ?? 0, 0)).padStart(2, "0")}{" "}
+          items
         </div>
       </div>
-
     </section>
   );
 }

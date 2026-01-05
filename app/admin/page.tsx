@@ -568,7 +568,8 @@ export default function AdminPage() {
 
               <div className="mt-6 flex items-center justify-between">
                 <p className="text-xs text-white/50">
-                  Saves to Firestore collection: <span className="text-white/70">certifications</span>
+                  Saves to Firestore collection:{" "}
+                  <span className="text-white/70">certifications</span>
                 </p>
                 <button
                   type="submit"
